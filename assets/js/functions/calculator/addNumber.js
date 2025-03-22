@@ -5,9 +5,13 @@ export let firstNum = '';
 export let secondNum = '';
 
 export function addNumber(num) {
-	const isRepetitionPointFirstNum = num === '.' && firstNum.includes('.');
+	const isRepetitionPointFirstNum = num === '.' && firstNum.includes('.') && secondNum === '';
 	const isRepetitionPointSecondNum = num === '.' && secondNum.includes('.');
 	const isPresenceOperator = operator === '';
+
+	if (num === '.' && firstNum === '') {
+		return;
+	}
 
 	if (isRepetitionPointFirstNum) {
 		return;
