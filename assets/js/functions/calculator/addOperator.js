@@ -4,7 +4,7 @@ import { scoreboard } from './view';
 export let operator = '';
 
 export function addOperator(oper) {
-	if (operator !== '') {
+	if (operator !== '' || firstNum === '') {
 		return;
 	} else {
 		operator = oper;
