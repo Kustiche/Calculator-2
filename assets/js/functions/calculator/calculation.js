@@ -11,9 +11,9 @@ const OPERATORS = {
 	DIVIDE: '÷',
 };
 let result = '';
-let index = 0;
+let index = JSON.parse(localStorage.getItem('index')) ?? 0;
 
-export const results = [];
+export const results = JSON.parse(localStorage.getItem('results')) ?? [];
 
 export function calculation() {
 	switch (operator) {
@@ -77,4 +77,7 @@ export function calculation() {
 			scoreboard.textContent = result;
 			break;
 	}
+
+	localStorage.setItem('results', JSON.stringify(results));
+	localStorage.setItem('index', JSON.stringify(index));
 }

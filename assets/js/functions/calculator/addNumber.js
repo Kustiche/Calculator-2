@@ -5,7 +5,7 @@ export let firstNum = '';
 export let secondNum = '';
 
 export function addNumber(num) {
-	if (num === '.' && firstNum.includes('.') && secondNum === '') {
+	if (num === '.' && firstNum.includes('.')) {
 		return;
 	} else if (num === '.' && secondNum.includes('.')) {
 		return;

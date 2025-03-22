@@ -6,6 +6,7 @@ import { addOperator } from './addOperator.js';
 import { calculation } from './calculation.js';
 import { openHistory } from './openHistory.js';
 import { deleteResult } from './deleteResult.js';
+import { addResultHistory } from './addResultHistory.js';
 
 wrap.addEventListener('click', (e) => {
 	switch (e.target.className) {
@@ -38,3 +39,5 @@ wrap.addEventListener('click', (e) => {
 			break;
 	}
 });
+
+addResultHistory();
