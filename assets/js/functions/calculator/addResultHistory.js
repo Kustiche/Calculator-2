@@ -9,6 +9,8 @@ export function addResultHistory() {
 		newResult.classList.add('calculator__result');
 		newResult.classList.add('btn-reset');
 		innerResults.prepend(newResult);
-		newResult.textContent = result;
+
+		newResult.textContent = result.number;
+		newResult.dataset.index = result.id;
 	});
 }

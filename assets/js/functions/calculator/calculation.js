@@ -11,6 +11,7 @@ const OPERATORS = {
 	DIVIDE: '÷',
 };
 let result = '';
+let index = 0;
 
 export const results = [];
 
@@ -18,7 +19,12 @@ export function calculation() {
 	switch (operator) {
 		case OPERATORS.PLUS:
 			result = firstNum + secondNum;
-			results.push(result);
+			results.push({
+				number: result,
+				id: index,
+			});
+
+			++index;
 
 			cleaning();
 			addResultHistory();
@@ -28,7 +34,12 @@ export function calculation() {
 
 		case OPERATORS.MINUS:
 			result = firstNum - secondNum;
-			results.push(result);
+			results.push({
+				number: result,
+				id: index,
+			});
+
+			++index;
 
 			cleaning();
 			addResultHistory();
@@ -38,7 +49,12 @@ export function calculation() {
 
 		case OPERATORS.MULTIPLY:
 			result = firstNum * secondNum;
-			results.push(result);
+			results.push({
+				number: result,
+				id: index,
+			});
+
+			++index;
 
 			cleaning();
 			addResultHistory();
@@ -48,7 +64,12 @@ export function calculation() {
 
 		case OPERATORS.DIVIDE:
 			result = firstNum / secondNum;
-			results.push(result);
+			results.push({
+				number: result,
+				id: index,
+			});
+
+			++index;
 
 			cleaning();
 			addResultHistory();

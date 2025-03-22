@@ -34,7 +34,7 @@ wrap.addEventListener('click', (e) => {
 			break;
 
 		case 'calculator__result btn-reset':
-			deleteResult(e.target.textContent);
+			deleteResult(e.target.dataset.index);
 			break;
 	}
 });
