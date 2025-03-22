@@ -1,14 +1,11 @@
-import { wrap, button, btnClean, btnDelete } from './view.js';
+import { wrap, button, btnClean, btnDelete, btnOperation, btnHistory, result } from './view.js';
 import { addNumber } from './addNumber.js';
 import { cleaning } from './cleaning.js';
 import { deleteLastNum } from './deleteLastNum.js';
-
-const OPERATORS = {
-	PLUS: '+',
-	MINUS: '−',
-	MULTIPLY: '×',
-	DIVIDE: '÷',
-};
+import { addOperator } from './addOperator.js';
+import { calculation } from './calculation.js';
+import { openHistory } from './openHistory.js';
+import { deleteResult } from './deleteResult.js';
 
 wrap.addEventListener('click', (e) => {
 	switch (e.target.className) {
@@ -22,6 +19,22 @@ wrap.addEventListener('click', (e) => {
 
 		case btnDelete.className:
 			deleteLastNum();
+			break;
+
+		case btnOperation.className:
+			if (e.target.textContent === '=') {
+				calculation();
+			} else {
+				addOperator(e.target.textContent);
+			}
+			break;
+
+		case btnHistory.className:
+			openHistory();
+			break;
+
+		case 'calculator__result btn-reset':
+			deleteResult(e.target.textContent);
 			break;
 	}
 });

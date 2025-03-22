@@ -167,8 +167,7 @@
 			background-color: var(--light-color);
 		}
 
-		&--close {
-			display: none;
+		&.active {
 			border-radius: 20px 20px 0 0;
 		}
 	}
@@ -190,12 +189,23 @@
 
 	&__result {
 		margin: 0;
+		border: 2px solid var(--dark-color);
 		border-radius: 10px;
-		padding: 5px 10px;
+		padding: 5px 8px;
 		min-width: 260px;
 		font-size: 20px;
 		line-height: normal;
 		text-align: center;
 		background-color: var(--bg-color);
+		transition: transform 0.4s;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(90%);
+		}
+
+		&:active {
+			background-color: var(--light-color);
+		}
 	}
 }

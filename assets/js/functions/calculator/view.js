@@ -3,3 +3,7 @@ export const button = document.querySelector('.calculator__button');
 export const scoreboard = document.querySelector('.calculator__scoreboard');
 export const btnClean = document.querySelector('.calculator__clean');
 export const btnDelete = document.querySelector('.calculator__button--delete');
+export const btnOperation = document.querySelector('.calculator__operation');
+export const btnHistory = document.querySelector('.calculator__btn-history');
+export const innerResults = document.querySelector('.calculator__results');
+export const result = document.querySelector('.calculator__result btn-reset');
