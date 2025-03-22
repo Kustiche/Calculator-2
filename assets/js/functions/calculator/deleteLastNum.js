@@ -3,7 +3,9 @@ import { cleanOperator, operator } from './addOperator.js';
 import { scoreboard } from './view.js';
 
 export function deleteLastNum() {
-	if (secondNum === '' && operator !== '') {
+	const isPresenceOperatorAndSecondNum = secondNum === '' && operator !== '';
+
+	if (isPresenceOperatorAndSecondNum) {
 		cleanOperator();
 		scoreboard.textContent = `${firstNum} ${operator} ${secondNum}`;
 	} else {

@@ -5,11 +5,15 @@ export let firstNum = '';
 export let secondNum = '';
 
 export function addNumber(num) {
-	if (num === '.' && firstNum.includes('.')) {
+	const isRepetitionPointFirstNum = num === '.' && firstNum.includes('.');
+	const isRepetitionPointSecondNum = num === '.' && secondNum.includes('.');
+	const isPresenceOperator = operator === '';
+
+	if (isRepetitionPointFirstNum) {
 		return;
-	} else if (num === '.' && secondNum.includes('.')) {
+	} else if (isRepetitionPointSecondNum) {
 		return;
-	} else if (operator === '') {
+	} else if (isPresenceOperator) {
 		firstNum = firstNum + num;
 
 		scoreboard.textContent = `${firstNum} ${operator} ${secondNum}`;
@@ -27,11 +31,14 @@ export function cleanNumbers() {
 export function deleteNum() {
 	let textLength = '';
 
-	if (secondNum !== '') {
+	const isPresenceSecondNum = secondNum !== '';
+	const isPresenceOperator = operator === '';
+
+	if (isPresenceSecondNum) {
 		textLength = `${secondNum}`.length - 1;
 
 		secondNum = `${secondNum}`.substring(0, textLength);
-	} else if (operator === '') {
+	} else if (isPresenceOperator) {
 		textLength = `${firstNum}`.length - 1;
 
 		firstNum = `${firstNum}`.substring(0, textLength);
