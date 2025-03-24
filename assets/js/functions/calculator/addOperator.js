@@ -1,14 +1,24 @@
-import { firstNum, secondNum } from './addNumber';
-import { scoreboard } from './view';
+import { addMinus, firstNum, secondNum } from './addNumber.js';
+import { scoreboard } from './view.js';
 
 export let operator = '';
 
 export function addOperator(oper) {
-	const isPresenceOperatorAndFirstNum = operator !== '' || firstNum === '';
+	const isPresenceMinusFirstNum = oper === '-' && !firstNum.includes('-') && firstNum === '';
+	const isPresenceMinusSecondNum = operator !== '' && oper === '-' && !secondNum.includes('-');
+	const isPresenceOperatorAndFirstNum = operator !== '' || firstNum === '' || firstNum === '-';
 
-	if (isPresenceOperatorAndFirstNum) {
+	if (isPresenceMinusFirstNum) {
+		addMinus();
+
 		return;
-	} else {
+	} else if (isPresenceMinusSecondNum) {
+		addMinus();
+
+		return;
+	} else if (isPresenceOperatorAndFirstNum) {
+		return;
+	} else if (firstNum !== '-') {
 		operator = oper;
 
 		scoreboard.textContent = `${firstNum} ${operator} ${secondNum}`;

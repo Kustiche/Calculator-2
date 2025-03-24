@@ -6,7 +6,7 @@ import { scoreboard } from './view.js';
 
 const OPERATORS = {
 	PLUS: '+',
-	MINUS: '−',
+	MINUS: '-',
 	MULTIPLY: '×',
 	DIVIDE: '÷',
 };
@@ -18,7 +18,7 @@ export const results = JSON.parse(localStorage.getItem('results')) ?? [];
 export function calculation() {
 	switch (operator) {
 		case OPERATORS.PLUS:
-			result = firstNum + secondNum;
+			result = +firstNum + +secondNum;
 			results.push({
 				number: result,
 				id: index,
@@ -33,7 +33,7 @@ export function calculation() {
 			break;
 
 		case OPERATORS.MINUS:
-			result = firstNum - secondNum;
+			result = +firstNum - +secondNum;
 			results.push({
 				number: result,
 				id: index,
@@ -48,7 +48,7 @@ export function calculation() {
 			break;
 
 		case OPERATORS.MULTIPLY:
-			result = firstNum * secondNum;
+			result = +firstNum * +secondNum;
 			results.push({
 				number: result,
 				id: index,
@@ -63,7 +63,7 @@ export function calculation() {
 			break;
 
 		case OPERATORS.DIVIDE:
-			result = firstNum / secondNum;
+			result = +firstNum / +secondNum;
 			results.push({
 				number: result,
 				id: index,
